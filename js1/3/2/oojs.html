@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+      function Person(first, last,age,gender,interests) {
+        this.name = {
+          'first': first,
+          'last': last
+        };
+        this.age = age;
+        this.gender = gender;
+        this.interests = interests;
+        this.bio = function() {
+          var string = this.name.first + this.name.last + '是' + this.age + '岁。';
+          var pronoun;
+          if(this.gender === '男') {
+            pronoun = '他喜欢';
+          } else if(this.gender === '女') {
+            pronoun = '她喜欢';
+          } else {
+            pronoun = '它喜欢';
+          }
+          string += pronoun;
+          if(this.interests.length === 1) {
+            string += this.interests[0] + '.';
+          } else if(this.interests.length === 2) {
+            string += this.interests[0] + '和' + this.interests[1] + '.';
+          } else {
+            for(var i = 0; i < this.interests.length; i++) {
+              if(i === this.interests.length - 1) {
+                string += '和' + this.interests[i] + '.';
+              } else {
+                string += this.interests[i] + '.';
+              }
+            }
+          }
+          alert(string);
+        };
+        this.greeting = function() {
+          alert('大家好我是' + this.name.first + this.name.last + '.');
+        };
+      };
+      var person1 = new Person('张','冠一',20,'男',['睡觉','看书','吉他','动漫']);
+    </script>
+</html>
