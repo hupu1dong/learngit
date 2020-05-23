@@ -7,7 +7,7 @@
   <body>
     <p>This is my page</p>
     <script>
-      let promise = fetch('file:///C:/Users/Admin/Desktop/js1/getting-started/coffee.jpg');
+      let promise = fetch('coffee.jpg');
       let promise2 = promise.then(response => response.blob());
       let promise3 = promise2.then(myBlob => {
           let objectURL = URL.createObjectURL(myBlob);
